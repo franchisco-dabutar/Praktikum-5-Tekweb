@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Sederhana</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: #dbeefb;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    .kalkulator {
+      width: 100%;
+      max-width: 340px;
+      padding: 14px;
+      background: #eef7fd;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(40, 120, 180, 0.2);
+    }
+
+    .layar {
+      min-height: 110px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      background: #ffffff;
+      border-radius: 12px;
+      word-break: break-all;
+      text-align: right;
+    }
+
+    #ekspresi {
+      min-height: 20px;
+      font-size: 0.95rem;
+      color: #7a9bb3;
+    }
+
+    #hasil {
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: #1e3a52;
+    }
+
+    #hasil.kecil { font-size: 1.8rem; }
+    #hasil.error { font-size: 1.1rem; color: #c0392b; }
+
+    .tombol {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
+    button {
+      height: 56px;
+      font-size: 1.15rem;
+      font-family: inherit;
+      color: #1e3a52;
+      background: #ffffff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    button:hover { background: #dff0fb; }
+    button:active { transform: scale(0.95); }
+
+    button.angka { font-weight: 600; }
+    button.operator { background: #d3eafa; color: #1b6fa8; font-size: 1.4rem; }
+    button.operator:hover { background: #bfe0f6; }
+    button.sama { background: #3fa0da; color: #ffffff; font-size: 1.5rem; }
+    button.sama:hover { background: #2f8cc6; }
+  </style>
+</head>
+<body>
+  <main class="kalkulator">
+    <div class="layar">
+      <div id="ekspresi"></div>
+      <div id="hasil">0</div>
+    </div>
+
+    <div class="tombol">
+      <button type="button" data-aksi="clear">C</button>
+      <button type="button" data-aksi="hapus">⌫</button>
+      <button type="button" data-aksi="persen">%</button>
+      <button type="button" class="operator" data-operasi="/">÷</button>
+
+      <button type="button" class="angka" data-angka="7">7</button>
+      <button type="button" class="angka" data-angka="8">8</button>
+      <button type="button" class="angka" data-angka="9">9</button>
+      <button type="button" class="operator" data-operasi="*">×</button>
+
+      <button type="button" class="angka" data-angka="4">4</button>
+      <button type="button" class="angka" data-angka="5">5</button>
+      <button type="button" class="angka" data-angka="6">6</button>
+      <button type="button" class="operator" data-operasi="-">−</button>
+
+      <button type="button" class="angka" data-angka="1">1</button>
+      <button type="button" class="angka" data-angka="2">2</button>
+      <button type="button" class="angka" data-angka="3">3</button>
+      <button type="button" class="operator" data-operasi="+">+</button>
+
+      <button type="button" data-aksi="tanda">±</button>
+      <button type="button" class="angka" data-angka="0">0</button>
+      <button type="button" data-aksi="koma">,</button>
+      <button type="button" class="sama" data-aksi="sama">=</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
